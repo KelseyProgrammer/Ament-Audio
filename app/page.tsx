@@ -15,7 +15,7 @@ const plugins = [
     description:
       "Split your signal into up to eight pitch-shifted feedback paths that bloom from subtle harmonic doubler to self-generating ambient drone — shoegaze shimmer, dark overtone stacks, and everything between.",
     price: "$19",
-    link: "#",
+    link: "/halation",
   },
 ];
 
@@ -90,7 +90,7 @@ export default function Home() {
             marginBottom: "3rem",
           }}
         >
-          FREE VST PLUGINS FOR MODERN PRODUCERS
+          VST PLUGINS FOR MODERN PRODUCERS
         </p>
         <a
           href="#plugins"
