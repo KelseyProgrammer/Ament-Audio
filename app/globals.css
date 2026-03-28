@@ -30,3 +30,13 @@ body {
   position: relative;
   z-index: 2;
 }
+
+/* Homepage hover states (replaces JS onMouseEnter/Leave) */
+.home-nav-link:hover { color: #fff; }
+
+.home-hero-cta:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+}
+
+.home-plugin-card:hover { border-color: rgba(255, 255, 255, 0.45); }

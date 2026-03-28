@@ -1,27 +1,25 @@
-"use client";
-
 import Link from "next/link";
 
-export default function Home() {
-  const plugins = [
-    {
-      name: "FREECODER",
-      category: "Spectral Processor",
-      description:
-        "Spectral morphing workstation — capture any sound and use it as a living spectral donor for freeze, granular, phrase loop, and MIDI instrument processing.",
-      price: "$29",
-      link: "/freecoder",
-    },
-    {
-      name: "HALATION",
-      category: "Feedback Pitch Ecosystem",
-      description:
-        "Split your signal into up to eight pitch-shifted feedback paths that bloom from subtle harmonic doubler to self-generating ambient drone — shoegaze shimmer, dark overtone stacks, and everything between.",
-      price: "$19",
-      link: "#",
-    },
-  ];
+const plugins = [
+  {
+    name: "FREECODER",
+    category: "Spectral Processor",
+    description:
+      "Spectral morphing workstation — capture any sound and use it as a living spectral donor for freeze, granular, phrase loop, and MIDI instrument processing.",
+    price: "$29",
+    link: "/freecoder",
+  },
+  {
+    name: "HALATION",
+    category: "Feedback Pitch Ecosystem",
+    description:
+      "Split your signal into up to eight pitch-shifted feedback paths that bloom from subtle harmonic doubler to self-generating ambient drone — shoegaze shimmer, dark overtone stacks, and everything between.",
+    price: "$19",
+    link: "#",
+  },
+];
 
+export default function Home() {
   return (
     <>
       {/* Nav */}
@@ -42,6 +40,7 @@ export default function Home() {
             <a
               key={label}
               href={`#${label.toLowerCase()}`}
+              className="home-nav-link"
               style={{
                 color: "rgba(255,255,255,0.75)",
                 letterSpacing: "0.1em",
@@ -49,13 +48,6 @@ export default function Home() {
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) =>
-                ((e.target as HTMLAnchorElement).style.color = "#fff")
-              }
-              onMouseLeave={(e) =>
-                ((e.target as HTMLAnchorElement).style.color =
-                  "rgba(255,255,255,0.75)")
-              }
             >
               {label.toUpperCase()}
             </a>
@@ -102,6 +94,7 @@ export default function Home() {
         </p>
         <a
           href="#plugins"
+          className="home-hero-cta"
           style={{
             display: "inline-block",
             padding: "0.9rem 2.5rem",
@@ -111,16 +104,6 @@ export default function Home() {
             fontSize: "0.8rem",
             textDecoration: "none",
             transition: "background 0.25s, border-color 0.25s",
-          }}
-          onMouseEnter={(e) => {
-            const el = e.currentTarget;
-            el.style.background = "rgba(255,255,255,0.12)";
-            el.style.borderColor = "#fff";
-          }}
-          onMouseLeave={(e) => {
-            const el = e.currentTarget;
-            el.style.background = "transparent";
-            el.style.borderColor = "rgba(255,255,255,0.6)";
           }}
         >
           EXPLORE PLUGINS
@@ -160,6 +143,7 @@ export default function Home() {
           {plugins.map((plugin) => (
             <div
               key={plugin.name}
+              className="home-plugin-card"
               style={{
                 border: "1px solid rgba(255,255,255,0.15)",
                 background: "rgba(0,0,0,0.45)",
@@ -168,14 +152,6 @@ export default function Home() {
                 transition: "border-color 0.25s",
                 cursor: "pointer",
               }}
-              onMouseEnter={(e) =>
-                ((e.currentTarget.style.borderColor =
-                  "rgba(255,255,255,0.45)"))
-              }
-              onMouseLeave={(e) =>
-                ((e.currentTarget.style.borderColor =
-                  "rgba(255,255,255,0.15)"))
-              }
             >
               <div
                 style={{
