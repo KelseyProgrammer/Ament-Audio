@@ -141,16 +141,18 @@ export default function Home() {
           }}
         >
           {plugins.map((plugin) => (
-            <div
+            <Link
               key={plugin.name}
+              href={plugin.link}
               className="home-plugin-card"
               style={{
+                display: "block",
                 border: "1px solid rgba(255,255,255,0.15)",
                 background: "rgba(0,0,0,0.45)",
                 backdropFilter: "blur(12px)",
                 padding: "2rem",
                 transition: "border-color 0.25s",
-                cursor: "pointer",
+                textDecoration: "none",
               }}
             >
               <div
@@ -202,20 +204,18 @@ export default function Home() {
               >
                 {plugin.description}
               </p>
-              <Link
-                href={plugin.link}
+              <span
                 style={{
                   fontSize: "0.7rem",
                   letterSpacing: "0.15em",
                   color: "rgba(255,255,255,0.75)",
-                  textDecoration: "none",
                   borderBottom: "1px solid rgba(255,255,255,0.3)",
                   paddingBottom: "2px",
                 }}
               >
                 VIEW PLUGIN →
-              </Link>
-            </div>
+              </span>
+            </Link>
           ))}
         </div>
       </section>

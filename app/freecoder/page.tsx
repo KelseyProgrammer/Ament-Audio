@@ -522,7 +522,7 @@ export default function FreeCoder() {
               ← AMENT AUDIO
             </Link>
             {" · "}
-            <a href="#" style={{ color: "#888", textDecoration: "none" }}>MANUAL</a>
+            <Link href="/freecoder/manual" style={{ color: "#888", textDecoration: "none" }}>MANUAL</Link>
             {" · "}
             © {new Date().getFullYear()} AMENT AUDIO
           </div>

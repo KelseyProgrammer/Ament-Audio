@@ -12,7 +12,19 @@ const abrilFatface = Abril_Fatface({
 
 export const metadata: Metadata = {
   title: "AMENT AUDIO",
-  description: "Professional VST plugins crafted for modern producers.",
+  description: "VST plugins for modern producers. Spectral, ambient, and experimental audio tools.",
+  openGraph: {
+    title: "AMENT AUDIO",
+    description: "VST plugins for modern producers. Spectral, ambient, and experimental audio tools.",
+    url: "https://amentaudio.com",
+    siteName: "Ament Audio",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AMENT AUDIO",
+    description: "VST plugins for modern producers. Spectral, ambient, and experimental audio tools.",
+  },
 };
 
 export default function RootLayout({
