@@ -154,7 +154,7 @@ export default function Halation() {
             <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "#888" }}>BUY</div>
             <div style={{ fontSize: "2rem", color: "#fff", letterSpacing: "0.05em" }}>$19</div>
             <a
-              href="#"
+              href="https://chrisament.gumroad.com/l/qefky"
               style={{ display: "inline-block", background: AMBER, color: "#000", padding: "0.75rem 1.5rem", fontSize: "0.75rem", letterSpacing: "0.15em", textDecoration: "none", fontWeight: 700, textAlign: "center", transition: "box-shadow 0.2s" }}
               onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 0 24px ${AMBER}88`)}
               onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}

@@ -346,7 +346,8 @@ export default function FreeCoder() {
                   full-featured · honor system / buy within 7 days of use
                 </div>
                 <a
-                  href="https://github.com/KelseyProgrammer/FREECODER/releases/latest/download/FREECODER-macOS.zip"
+                  href="/FREECODER-0.2.23-macOS-FreeTrial.zip"
+                  download
                   style={downloadBtnStyle}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.borderColor = "#39ff6a")
@@ -359,7 +360,7 @@ export default function FreeCoder() {
                   DOWNLOAD — macOS
                 </a>
                 <a
-                  href="https://github.com/KelseyProgrammer/FREECODER/releases/latest/download/FREECODER-Windows.exe"
+                  href="https://chrisament.gumroad.com/l/klogc"
                   style={downloadBtnStyle}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.borderColor = "#39ff6a")
