@@ -423,8 +423,8 @@ export default function FreeCoder() {
               ⚠ Windows: unsigned trial — click &quot;More info → Run anyway&quot; if prompted by SmartScreen.
             </div>
 
-            <a
-              href="#"
+            <Link
+              href="/freecoder/manual"
               style={{
                 fontSize: "0.72rem",
                 letterSpacing: "0.15em",
@@ -435,7 +435,7 @@ export default function FreeCoder() {
               }}
             >
               USER MANUAL →
-            </a>
+            </Link>
           </section>
 
           {/* Specs */}
