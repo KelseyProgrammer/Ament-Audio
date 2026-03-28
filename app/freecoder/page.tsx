@@ -345,33 +345,29 @@ export default function FreeCoder() {
                 >
                   full-featured · honor system / buy within 7 days of use
                 </div>
-                <a
-                  href="/FREECODER-0.2.23-macOS-FreeTrial.zip"
-                  download
-                  style={downloadBtnStyle}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.borderColor = "#39ff6a")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.borderColor =
-                      "rgba(57,255,106,0.35)")
-                  }
-                >
-                  DOWNLOAD — macOS
-                </a>
-                <a
-                  href="https://chrisament.gumroad.com/l/klogc"
-                  style={downloadBtnStyle}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.borderColor = "#39ff6a")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.borderColor =
-                      "rgba(57,255,106,0.35)")
-                  }
-                >
-                  DOWNLOAD — WINDOWS
-                </a>
+                {[
+                  { label: "DOWNLOAD — macOS", href: "/FREECODER-0.2.23-macOS-FreeTrial.zip" },
+                  { label: "DOWNLOAD — Windows (installer)", href: "/FREECODER-0.2.23-Windows-FreeTrial.exe.zip" },
+                  { label: "DOWNLOAD — Windows VST3", href: "/FREECODER-0.2.23-Windows-FreeTrial-VST3.zip" },
+                  { label: "DOWNLOAD — Windows CLAP", href: "/FREECODER-0.2.23-Windows-FreeTrial-CLAP.zip" },
+                  { label: "DOWNLOAD — Linux", href: "/FREECODER-0.2.23-Linux-FreeTrial.zip" },
+                ].map((d) => (
+                  <a
+                    key={d.href}
+                    href={d.href}
+                    download
+                    style={downloadBtnStyle}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.borderColor = "#39ff6a")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.borderColor =
+                        "rgba(57,255,106,0.35)")
+                    }
+                  >
+                    {d.label}
+                  </a>
+                ))}
               </div>
             </div>
 
