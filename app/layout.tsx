@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Abril_Fatface } from "next/font/google";
+import VideoBackground from "./components/VideoBackground";
 import "./globals.css";
 
 const abrilFatface = Abril_Fatface({
@@ -22,17 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={abrilFatface.variable}>
       <body>
-        <video
-          className="bg-gif"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-        >
-          <source src="/background.webm" type="video/webm" />
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
+        <VideoBackground />
         <div className="overlay" aria-hidden="true" />
         <div className="content">{children}</div>
       </body>
