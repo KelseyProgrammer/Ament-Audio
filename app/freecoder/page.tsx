@@ -226,7 +226,6 @@ export default function FreeCoder() {
                 title="FREECODER — Spectral Morphing Workstation Demo"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
-                loading="lazy"
                 style={{
                   position: "absolute",
                   top: 0,

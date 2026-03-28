@@ -22,17 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={abrilFatface.variable}>
       <body>
-        <video
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/background.gif"
+          alt=""
           className="bg-gif"
-          autoPlay
-          muted
-          loop
-          playsInline
           aria-hidden="true"
-        >
-          <source src="/background.webm" type="video/webm" />
-          <source src="/background.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="overlay" aria-hidden="true" />
         <div className="content">{children}</div>
       </body>
