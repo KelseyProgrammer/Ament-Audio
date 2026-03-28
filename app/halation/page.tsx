@@ -3,7 +3,6 @@
 import Link from "next/link";
 
 const AMBER = "#e8a84a";
-const AMBER_DIM = "rgba(232,168,74,0.35)";
 
 export default function Halation() {
   const features = [
@@ -63,19 +62,6 @@ export default function Halation() {
     ["Dark Drone", "Octaves", "High feedback, heavy damping, negative tilt. Self-sustaining dark drone."],
     ["Cluster Frost", "Chromatic", "6 paths, low feedback, high chaos. Unpredictable microtonal movement."],
   ];
-
-  const btnStyle: React.CSSProperties = {
-    display: "inline-block",
-    border: `1px solid ${AMBER_DIM}`,
-    color: AMBER,
-    padding: "0.65rem 1rem",
-    fontSize: "0.72rem",
-    letterSpacing: "0.15em",
-    textDecoration: "none",
-    textAlign: "center",
-    transition: "border-color 0.2s",
-    cursor: "pointer",
-  };
 
   return (
     <div style={{ fontFamily: "'Courier New', monospace", color: "#e0e0e0", background: "rgba(8,8,10,0.88)", minHeight: "100vh" }}>
@@ -164,57 +150,17 @@ export default function Halation() {
             GET IT
           </h2>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1px", background: "#1a1a1a", border: "1px solid #1a1a1a", marginBottom: "1.5rem" }}>
-            {/* Buy */}
-            <div style={{ background: "#0d0d0d", padding: "2rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "#888" }}>BUY</div>
-              <div style={{ fontSize: "2rem", color: "#fff", letterSpacing: "0.05em" }}>$19</div>
-              <a
-                href="#"
-                style={{ display: "inline-block", background: AMBER, color: "#000", padding: "0.75rem 1.5rem", fontSize: "0.75rem", letterSpacing: "0.15em", textDecoration: "none", fontWeight: 700, textAlign: "center", transition: "box-shadow 0.2s" }}
-                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 0 24px ${AMBER}88`)}
-                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
-              >
-                BUY NOW — $19
-              </a>
-            </div>
-
-            {/* Trial */}
-            <div style={{ background: "#0d0d0d", padding: "2rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "#888" }}>FREE TRIAL — 7 DAYS</div>
-              <div style={{ fontSize: "0.75rem", color: "#aaa", lineHeight: 1.6 }}>full-featured · honor system / buy within 7 days of use</div>
-              <a
-                href="https://github.com/KelseyProgrammer/HALATION/releases/latest/download/HALATION-macOS.pkg"
-                style={btnStyle}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = AMBER)}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = AMBER_DIM)}
-              >
-                DOWNLOAD — macOS
-              </a>
-              <a
-                href="https://github.com/KelseyProgrammer/HALATION/releases/latest/download/HALATION-Windows.exe"
-                style={btnStyle}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = AMBER)}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = AMBER_DIM)}
-              >
-                DOWNLOAD — WINDOWS
-              </a>
-            </div>
-          </div>
-
-          {/* Install */}
-          <div style={{ background: "#0d0d0d", border: "1px solid #1e1e1e", padding: "1.5rem", fontSize: "0.75rem", color: "#aaa", lineHeight: 2, marginBottom: "1rem" }}>
-            <div style={{ color: "#888", letterSpacing: "0.15em", marginBottom: "0.75rem", fontSize: "0.65rem" }}>INSTALLATION</div>
-            <div>macOS — Run HALATION-macOS.pkg installer. VST3, AU & CLAP copied automatically.</div>
-            <div>Windows — Run HALATION-Windows.exe installer. VST3 installs to C:\Program Files\Common Files\VST3\</div>
-            <div>Rescan plugins in your DAW after installation.</div>
-          </div>
-
-          <div style={{ background: "#001a08", border: "1px solid #003a14", padding: "1rem 1.25rem", fontSize: "0.75rem", color: AMBER, lineHeight: 1.8, marginBottom: "1rem" }}>
-            ✓ macOS: signed &amp; notarized — no security warnings. Universal binary (Apple Silicon + Intel).
-          </div>
-          <div style={{ background: "#1a1200", border: "1px solid #3a2a00", padding: "1rem 1.25rem", fontSize: "0.75rem", color: "#aa8800", lineHeight: 1.8 }}>
-            ⚠ Windows: unsigned trial — click &quot;More info → Run anyway&quot; if prompted by SmartScreen.
+          <div style={{ background: "#0d0d0d", border: "1px solid #1a1a1a", padding: "2rem", display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "1.5rem" }}>
+            <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "#888" }}>BUY</div>
+            <div style={{ fontSize: "2rem", color: "#fff", letterSpacing: "0.05em" }}>$19</div>
+            <a
+              href="#"
+              style={{ display: "inline-block", background: AMBER, color: "#000", padding: "0.75rem 1.5rem", fontSize: "0.75rem", letterSpacing: "0.15em", textDecoration: "none", fontWeight: 700, textAlign: "center", transition: "box-shadow 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 0 24px ${AMBER}88`)}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+            >
+              BUY NOW — $19
+            </a>
           </div>
         </section>
 
