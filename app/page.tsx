@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 const plugins = [
   {
@@ -27,9 +30,68 @@ const plugins = [
   },
 ];
 
+const socials = [
+  { label: "YOUTUBE", href: "https://www.youtube.com/@AmentAudio" },
+  { label: "INSTAGRAM", href: "https://www.instagram.com/amentaudio/" },
+  { label: "REDDIT", href: "https://www.reddit.com/user/AmentAudio/" },
+  { label: "GITHUB", href: "https://github.com/KelseyProgrammer" },
+];
+
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  background: "rgba(0,0,0,0.4)",
+  border: "1px solid rgba(255,255,255,0.15)",
+  color: "#fff",
+  padding: "0.75rem 1rem",
+  fontSize: "0.85rem",
+  fontFamily: "inherit",
+  outline: "none",
+  boxSizing: "border-box",
+  transition: "border-color 0.2s",
+};
+
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  fontSize: "0.65rem",
+  letterSpacing: "0.2em",
+  color: "rgba(255,255,255,0.45)",
+  marginBottom: "0.5rem",
+};
+
 export default function Home() {
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [focusedField, setFocusedField] = useState<string | null>(null);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormState("submitting");
+    const form = e.currentTarget;
+    try {
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(new FormData(form) as unknown as Record<string, string>).toString(),
+      });
+      if (res.ok) {
+        setFormState("success");
+        form.reset();
+      } else {
+        setFormState("error");
+      }
+    } catch {
+      setFormState("error");
+    }
+  }
+
   return (
     <>
+      {/* Hidden form for Netlify build-time detection */}
+      <form name="contact" data-netlify="true" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message" />
+      </form>
+
       {/* Nav */}
       <nav className="flex items-center justify-between px-8 py-6">
         <span
@@ -228,17 +290,235 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About */}
+      <section
+        id="about"
+        style={{
+          padding: "6rem 2rem",
+          maxWidth: "780px",
+          margin: "0 auto",
+          width: "100%",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "Arial, Helvetica, sans-serif",
+            fontWeight: 800,
+            letterSpacing: "0.25em",
+            fontSize: "0.75rem",
+            color: "rgba(255,255,255,0.5)",
+            marginBottom: "3rem",
+            textAlign: "center",
+          }}
+        >
+          ABOUT
+        </h2>
+
+        <div style={{ lineHeight: 1.9, fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "3rem" }}>
+          <p style={{ marginBottom: "1.25rem" }}>
+            Ament Audio builds VST plugins for experimental and textural music production.
+            Each tool is designed around a single strong idea — exploring the edges of sound
+            rather than reproducing familiar processes.
+          </p>
+          <p style={{ marginBottom: "1.25rem" }}>
+            The plugins are written from scratch in JUCE, with a focus on musical usability
+            over feature count. FREECODER treats captured audio as raw material for spectral
+            transformation. HALATION makes feedback harmonic and controlled. LIMINAL finds
+            the atmosphere hiding in the space between notes.
+          </p>
+          <p>
+            Designed for shoegaze, ambient, drone, and experimental production — but built
+            to be useful anywhere texture matters more than convention.
+          </p>
+        </div>
+
+        <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-nav-link"
+              style={{
+                fontSize: "0.72rem",
+                letterSpacing: "0.2em",
+                color: "rgba(255,255,255,0.45)",
+                textDecoration: "none",
+                transition: "color 0.2s",
+              }}
+            >
+              {s.label} →
+            </a>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section
+        id="contact"
+        style={{
+          padding: "6rem 2rem",
+          maxWidth: "780px",
+          margin: "0 auto",
+          width: "100%",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+        }}
+      >
+        <h2
+          style={{
+            fontFamily: "Arial, Helvetica, sans-serif",
+            fontWeight: 800,
+            letterSpacing: "0.25em",
+            fontSize: "0.75rem",
+            color: "rgba(255,255,255,0.5)",
+            marginBottom: "3rem",
+            textAlign: "center",
+          }}
+        >
+          CONTACT
+        </h2>
+
+        {formState === "success" ? (
+          <div
+            style={{
+              background: "rgba(57,255,106,0.06)",
+              border: "1px solid rgba(57,255,106,0.25)",
+              padding: "2.5rem",
+              textAlign: "center",
+              color: "rgba(255,255,255,0.75)",
+              fontSize: "0.9rem",
+              lineHeight: 1.8,
+              letterSpacing: "0.05em",
+            }}
+          >
+            <div style={{ fontSize: "0.65rem", letterSpacing: "0.25em", color: "rgba(57,255,106,0.8)", marginBottom: "1rem" }}>
+              MESSAGE SENT
+            </div>
+            Thanks for reaching out — I&apos;ll get back to you soon.
+          </div>
+        ) : (
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            onSubmit={handleSubmit}
+            style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
+              <div>
+                <label htmlFor="name" style={labelStyle}>NAME</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your name"
+                  style={{
+                    ...inputStyle,
+                    borderColor: focusedField === "name" ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.15)",
+                  }}
+                  onFocus={() => setFocusedField("name")}
+                  onBlur={() => setFocusedField(null)}
+                />
+              </div>
+              <div>
+                <label htmlFor="email" style={labelStyle}>EMAIL</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="your@email.com"
+                  style={{
+                    ...inputStyle,
+                    borderColor: focusedField === "email" ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.15)",
+                  }}
+                  onFocus={() => setFocusedField("email")}
+                  onBlur={() => setFocusedField(null)}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="message" style={labelStyle}>MESSAGE</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={6}
+                placeholder="Questions, feedback, licensing inquiries..."
+                style={{
+                  ...inputStyle,
+                  resize: "vertical",
+                  borderColor: focusedField === "message" ? "rgba(255,255,255,0.45)" : "rgba(255,255,255,0.15)",
+                }}
+                onFocus={() => setFocusedField("message")}
+                onBlur={() => setFocusedField(null)}
+              />
+            </div>
+
+            {formState === "error" && (
+              <div style={{ fontSize: "0.78rem", color: "rgba(255,100,100,0.8)", letterSpacing: "0.05em" }}>
+                Something went wrong — please try again or email directly.
+              </div>
+            )}
+
+            <button
+              type="submit"
+              disabled={formState === "submitting"}
+              style={{
+                alignSelf: "flex-start",
+                background: formState === "submitting" ? "rgba(255,255,255,0.6)" : "#fff",
+                color: "#000",
+                border: "none",
+                padding: "0.9rem 2.5rem",
+                fontSize: "0.78rem",
+                letterSpacing: "0.2em",
+                fontFamily: "inherit",
+                cursor: formState === "submitting" ? "not-allowed" : "pointer",
+                transition: "opacity 0.2s",
+              }}
+            >
+              {formState === "submitting" ? "SENDING..." : "SEND MESSAGE"}
+            </button>
+          </form>
+        )}
+      </section>
+
       {/* Footer */}
       <footer
         style={{
           textAlign: "center",
           padding: "3rem 1.5rem",
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          color: "rgba(255,255,255,0.35)",
+          borderTop: "1px solid rgba(255,255,255,0.08)",
+          color: "rgba(255,255,255,0.3)",
           fontSize: "0.7rem",
           letterSpacing: "0.15em",
         }}
       >
+        <div style={{ display: "flex", justifyContent: "center", gap: "2rem", marginBottom: "1.25rem", flexWrap: "wrap" }}>
+          {socials.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="home-nav-link"
+              style={{
+                color: "rgba(255,255,255,0.3)",
+                textDecoration: "none",
+                letterSpacing: "0.15em",
+                transition: "color 0.2s",
+              }}
+            >
+              {s.label}
+            </a>
+          ))}
+        </div>
         © {new Date().getFullYear()} AMENT AUDIO — ALL RIGHTS RESERVED
       </footer>
     </>
