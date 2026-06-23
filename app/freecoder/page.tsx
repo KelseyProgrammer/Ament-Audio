@@ -113,7 +113,7 @@ export default function FreeCoder() {
                 color: "#aaa",
               }}
             >
-              by Ament Audio · v0.2.20 · VST3 · AU · CLAP
+              by Ament Audio · v0.2.24 · VST3 · AU · CLAP
             </p>
           </header>
 

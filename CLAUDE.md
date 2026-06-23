@@ -30,6 +30,7 @@ Marketing/store site for Ament Audio VST plugins, built with Next.js 16 (App Rou
 |--------|-------|--------|------|
 | FREECODER | $29 | Live — `/freecoder` | Gumroad: `chrisament.gumroad.com/l/klogc` |
 | HALATION | $19 | Live — `/halation` | Gumroad: `chrisament.gumroad.com/l/qefky` |
+| LIMINAL | $19 | Coming soon — `/liminal` | No Gumroad link yet |
 
 ## Conventions
 - All pages are `"use client"` (event handlers used for hover states)

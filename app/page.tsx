@@ -17,6 +17,14 @@ const plugins = [
     price: "$19",
     link: "/halation",
   },
+  {
+    name: "LIMINAL",
+    category: "Negative-Space Effect",
+    description:
+      "A threshold-based atmosphere engine that wakes up in the silence between your notes — conjuring reverb, shimmer, and pitch ghosts from whatever you just played.",
+    price: "$19",
+    link: "/liminal",
+  },
 ];
 
 export default function Home() {
