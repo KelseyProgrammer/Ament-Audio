@@ -28,6 +28,12 @@ const plugins = [
   },
 ];
 
+// TODO: replace with the real Gumroad bundle URL once the bundle product is created
+const BUNDLE_LINK = "https://chrisament.gumroad.com/l/REPLACE_WITH_BUNDLE";
+const BUNDLE_PRICE = "$49";
+const BUNDLE_FULL_PRICE = "$67";
+const BUNDLE_SAVINGS = "$18";
+
 const socials = [
   { label: "YOUTUBE", href: "https://www.youtube.com/@AmentAudio" },
   { label: "INSTAGRAM", href: "https://www.instagram.com/amentaudio/" },
@@ -156,6 +162,85 @@ export default function Home() {
         >
           PLUGINS
         </h2>
+
+        {/* Complete suite banner */}
+        <a
+          href={BUNDLE_LINK}
+          className="home-bundle-banner"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: "1.5rem",
+            border: "1px solid rgba(255,255,255,0.35)",
+            background: "rgba(0,0,0,0.55)",
+            backdropFilter: "blur(12px)",
+            padding: "1.75rem 2rem",
+            marginBottom: "3rem",
+            textDecoration: "none",
+            transition: "border-color 0.25s, box-shadow 0.25s",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                fontSize: "0.65rem",
+                letterSpacing: "0.25em",
+                color: "rgba(255,255,255,0.5)",
+                marginBottom: "0.5rem",
+              }}
+            >
+              COMPLETE SUITE
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--font-abril), Georgia, serif",
+                fontSize: "clamp(1.1rem, 3vw, 1.5rem)",
+                letterSpacing: "0.08em",
+                color: "#fff",
+              }}
+            >
+              FREECODER + HALATION + LIMINAL
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "1.75rem", flexWrap: "wrap" }}>
+            <div style={{ textAlign: "right" }}>
+              <div>
+                <span
+                  style={{
+                    fontSize: "0.9rem",
+                    color: "rgba(255,255,255,0.4)",
+                    textDecoration: "line-through",
+                    marginRight: "0.6rem",
+                  }}
+                >
+                  {BUNDLE_FULL_PRICE}
+                </span>
+                <span style={{ fontSize: "1.6rem", fontWeight: 700, color: "#fff", letterSpacing: "0.05em" }}>
+                  {BUNDLE_PRICE}
+                </span>
+              </div>
+              <div style={{ fontSize: "0.62rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.55)" }}>
+                SAVE {BUNDLE_SAVINGS}
+              </div>
+            </div>
+            <span
+              style={{
+                display: "inline-block",
+                background: "#fff",
+                color: "#000",
+                padding: "0.8rem 1.75rem",
+                fontSize: "0.72rem",
+                fontWeight: 700,
+                letterSpacing: "0.18em",
+              }}
+            >
+              GET THE SUITE →
+            </span>
+          </div>
+        </a>
+
         <div
           style={{
             display: "grid",
@@ -240,6 +325,86 @@ export default function Home() {
               </span>
             </Link>
           ))}
+
+          {/* Bundle card */}
+          <a
+            href={BUNDLE_LINK}
+            className="home-bundle-card"
+            style={{
+              display: "block",
+              border: "1px solid rgba(255,255,255,0.4)",
+              background: "rgba(255,255,255,0.06)",
+              backdropFilter: "blur(12px)",
+              padding: "2rem",
+              transition: "border-color 0.25s",
+              textDecoration: "none",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "flex-start",
+                marginBottom: "1rem",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.15em",
+                  color: "rgba(255,255,255,0.45)",
+                }}
+              >
+                ALL THREE PLUGINS
+              </span>
+              <span style={{ fontSize: "0.85rem", letterSpacing: "0.05em" }}>
+                <span
+                  style={{
+                    color: "rgba(255,255,255,0.4)",
+                    textDecoration: "line-through",
+                    marginRight: "0.5rem",
+                  }}
+                >
+                  {BUNDLE_FULL_PRICE}
+                </span>
+                <span style={{ fontWeight: 700, color: "#fff" }}>{BUNDLE_PRICE}</span>
+              </span>
+            </div>
+            <h3
+              style={{
+                fontWeight: 800,
+                fontSize: "1.1rem",
+                letterSpacing: "0.15em",
+                color: "#fff",
+                marginBottom: "0.75rem",
+              }}
+            >
+              COMPLETE SUITE
+            </h3>
+            <p
+              style={{
+                color: "rgba(255,255,255,0.6)",
+                fontSize: "0.85rem",
+                lineHeight: 1.7,
+                marginBottom: "1.5rem",
+              }}
+            >
+              FREECODER, HALATION, and LIMINAL together — the full Ament Audio
+              toolkit for spectral, feedback, and negative-space processing, at{" "}
+              {BUNDLE_SAVINGS} off the individual prices.
+            </p>
+            <span
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "#fff",
+                borderBottom: "1px solid rgba(255,255,255,0.6)",
+                paddingBottom: "2px",
+              }}
+            >
+              GET THE SUITE — SAVE {BUNDLE_SAVINGS} →
+            </span>
+          </a>
         </div>
       </section>
 

@@ -51,7 +51,7 @@ export default function Liminal() {
     ["Ramp system", "A/B snapshot morph, threshold-triggered or manual"],
     ["Requires", "macOS 11+ · 64-bit DAW"],
     ["Version", "0.0.1"],
-    ["Price", "$19 (coming soon)"],
+    ["Price", "$19"],
   ];
 
   return (
@@ -142,18 +142,16 @@ export default function Liminal() {
             GET IT
           </h2>
           <div style={{ background: "#0d0d0d", border: "1px solid #1a1a1a", padding: "2rem", display: "flex", flexDirection: "column", gap: "1rem" }}>
-            <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "#888" }}>PRICE</div>
+            <div style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "#888" }}>BUY</div>
             <div style={{ fontSize: "2rem", color: "#fff", letterSpacing: "0.05em" }}>$19</div>
-            <div style={{ fontSize: "0.78rem", color: "#666", letterSpacing: "0.1em", marginTop: "-0.25rem" }}>
-              COMING SOON
-            </div>
-            <p style={{ fontSize: "0.78rem", color: "#888", lineHeight: 1.7, margin: 0 }}>
-              LIMINAL is currently in early development (v0.0.1). A purchase link will be live soon — follow{" "}
-              <a href="https://www.youtube.com/@AmentAudio" target="_blank" rel="noopener noreferrer" style={{ color: FROST, textDecoration: "none" }}>
-                Ament Audio on YouTube
-              </a>{" "}
-              for updates.
-            </p>
+            <a
+              href="https://chrisament.gumroad.com/l/cvbgso"
+              style={{ display: "inline-block", background: FROST, color: "#000", padding: "0.75rem 1.5rem", fontSize: "0.75rem", letterSpacing: "0.15em", textDecoration: "none", fontWeight: 700, textAlign: "center", transition: "box-shadow 0.2s" }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = `0 0 24px ${FROST}88`)}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+            >
+              BUY NOW — $19
+            </a>
           </div>
         </section>
 

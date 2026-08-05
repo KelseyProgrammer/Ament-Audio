@@ -40,3 +40,10 @@ body {
 }
 
 .home-plugin-card:hover { border-color: rgba(255, 255, 255, 0.45); }
+
+.home-bundle-banner:hover {
+  border-color: #fff;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.12);
+}
+
+.home-bundle-card:hover { border-color: #fff; }
