@@ -28,8 +28,7 @@ const plugins = [
   },
 ];
 
-// TODO: replace with the real Gumroad bundle URL once the bundle product is created
-const BUNDLE_LINK = "https://chrisament.gumroad.com/l/REPLACE_WITH_BUNDLE";
+const BUNDLE_LINK = "https://chrisament.gumroad.com/l/mfjac";
 const BUNDLE_PRICE = "$49";
 const BUNDLE_FULL_PRICE = "$67";
 const BUNDLE_SAVINGS = "$18";
