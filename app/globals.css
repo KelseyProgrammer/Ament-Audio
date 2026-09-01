@@ -1,5 +1,30 @@
 @import "tailwindcss";
 
+/* Design tokens — the only sanctioned type sizes, ink opacities,
+   hairlines, and tracking values. Inline styles must reference these. */
+:root {
+  --text-xs: 0.65rem;
+  --text-sm: 0.72rem;
+  --text-base: 0.85rem;
+  --text-md: 0.95rem;
+  --text-lg: 1.1rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.6rem;
+
+  --ink-100: #ffffff;
+  --ink-70: rgba(255, 255, 255, 0.7);
+  --ink-50: rgba(255, 255, 255, 0.5);
+  --ink-35: rgba(255, 255, 255, 0.35);
+
+  --line-faint: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.15);
+  --line-strong: rgba(255, 255, 255, 0.4);
+
+  --track-sm: 0.08em;
+  --track-md: 0.15em;
+  --track-lg: 0.25em;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -47,3 +72,36 @@ body {
 }
 
 .home-bundle-card:hover { border-color: #fff; }
+
+/* In-card audio preview buttons */
+.audio-ab-btn {
+  font-family: inherit;
+  font-size: var(--text-xs);
+  letter-spacing: var(--track-md);
+  padding: 0.35rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--ink-70);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.audio-ab-btn:hover { border-color: #fff; color: #fff; }
+
+.audio-ab-btn[data-active="true"] {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+/* Static fallback shown when the video background is disabled */
+.static-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 40%, #16161a 0%, #000 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-video { display: none; }
+}

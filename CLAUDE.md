@@ -33,6 +33,13 @@ Marketing/store site for Ament Audio VST plugins, built with Next.js 16 (App Rou
 | LIMINAL | $19 | Live — `/liminal` | Gumroad: `chrisament.gumroad.com/l/cvbgso` |
 | COMPLETE SUITE | $49 (was $67) | Live — banner + card on homepage | Gumroad: `chrisament.gumroad.com/l/mfjac` |
 
+## Design Tokens (globals.css `:root`)
+- **Type scale:** `--text-xs/sm/base/md/lg/xl/2xl` (0.65–1.6rem) — inline styles must use these, not raw rem values (hero/banner display sizes may use `clamp()`)
+- **Ink:** `--ink-100/70/50/35` (white alpha ladder); **hairlines:** `--line-faint/line/line-strong`
+- **Tracking:** `--track-sm/md/lg` (0.08/0.15/0.25em)
+- **Audio previews:** cards use `AudioPreview` (dry/wet A/B); clips live at `public/audio/<plugin>-{dry,wet}.mp3` (~10s). The control hides itself automatically if clips are missing.
+- **Motion:** `VideoBackground` renders a static radial-gradient fallback under `prefers-reduced-motion`
+
 ## Conventions
 - All pages are `"use client"` (event handlers used for hover states)
 - Plugin cards on homepage use `price` + `link` fields; internal pages use `<Link>`, external use `<a>`

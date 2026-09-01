@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const CROSSFADE = 1.2; // seconds before end to start blending
 
@@ -18,8 +18,18 @@ const videoStyle: React.CSSProperties = {
 export default function VideoBackground() {
   const v1 = useRef<HTMLVideoElement>(null);
   const v2 = useRef<HTMLVideoElement>(null);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (reducedMotion) return;
     const vid1 = v1.current!;
     const vid2 = v2.current!;
 
@@ -42,7 +52,11 @@ export default function VideoBackground() {
       vid1.removeEventListener("timeupdate", onUpdate1);
       vid2.removeEventListener("timeupdate", onUpdate2);
     };
-  }, []);
+  }, [reducedMotion]);
+
+  if (reducedMotion) {
+    return <div className="static-bg" aria-hidden="true" />;
+  }
 
   const sources = (
     <>
@@ -53,10 +67,10 @@ export default function VideoBackground() {
 
   return (
     <>
-      <video ref={v1} style={{ ...videoStyle, opacity: 1 }} autoPlay muted playsInline aria-hidden="true">
+      <video ref={v1} className="bg-video" style={{ ...videoStyle, opacity: 1 }} autoPlay muted playsInline aria-hidden="true">
         {sources}
       </video>
-      <video ref={v2} style={{ ...videoStyle, opacity: 0 }} muted playsInline aria-hidden="true">
+      <video ref={v2} className="bg-video" style={{ ...videoStyle, opacity: 0 }} muted playsInline aria-hidden="true">
         {sources}
       </video>
     </>
